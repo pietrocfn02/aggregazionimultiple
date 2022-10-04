@@ -10,11 +10,11 @@ Si consiglia di installare tutte le librerie tramite un ambiente virtuale python
 # Avvio
 
 Una volta installate le dipendenze, spostarsi nella tabella "aggregazioni_multiple" (quella contenente al suo interno il file manage.py)
-e lanciare i seguenti comandi:
+e lanciare i seguenti comandi: 
 
-python manage.py makemigrations 
-python manage.py migrate
-python manage.py loaddata data.json
+python manage.py makemigrations \n
+python manage.py migrate \n
+python manage.py loaddata data.json \n
 
 Per costruire e popolare la base di dati.
 
