@@ -1,0 +1,101 @@
+[
+    {
+        "model" : "employees.Employee",
+        "pk" : 1,
+        "fields" : {
+            "name" : "Mario"
+        }
+
+    },
+    {
+        "model" : "employees.Employee",
+        "pk" : 2,
+        "fields" : {
+            "name" : "Giovanni"
+        }
+
+    },
+    {
+        "model" : "employees.Employee",
+        "pk" : 3,
+        "fields" : {
+            "name" : "Lucia"
+        }
+
+    },
+    {
+        "model": "employees.Project",
+        "pk" : 1,
+        "fields": {
+            "project_name" : "Mars Rover"
+        }
+    },
+    {
+        "model": "employees.Project",
+        "pk" : 2,
+        "fields": {
+            "project_name" : "Manhattan"
+        }
+    },
+    {
+        "model": "employees.TimeReport",
+        "pk" : 1,
+        "fields": {
+            "day": "2021-08-26",
+            "number_of_hours": 5,
+            "employee_id" : 1,
+            "project_id" : 1
+        }
+    },
+    {
+        "model": "employees.TimeReport",
+        "pk" : 2,
+        "fields": {
+            "day": "2021-08-30",
+            "number_of_hours": 3,
+            "employee_id" : 2,
+            "project_id" : 2
+        }
+    },
+    {
+        "model": "employees.TimeReport",
+        "pk" : 3,
+        "fields": {
+            "day": "2021-08-31",
+            "number_of_hours": 3,
+            "employee_id" : 1,
+            "project_id" : 1
+        }
+    },
+    {
+        "model": "employees.TimeReport",
+        "pk" : 4,
+        "fields": {
+            "day": "2021-08-31",
+            "number_of_hours": 3,
+            "employee_id" : 3,
+            "project_id" : 1
+        }
+    },
+    {
+        "model": "employees.TimeReport",
+        "pk" : 5,
+        "fields": {
+            "day": "2021-08-26",
+            "number_of_hours": 2,
+            "employee_id" : 1,
+            "project_id" : 2
+        }
+    },
+    {
+        "model": "employees.TimeReport",
+        "pk" : 6,
+        "fields": {
+            "day": "2021-08-31",
+            "number_of_hours": 4,
+            "employee_id" : 2,
+            "project_id" : 2
+        }
+    }
+
+]

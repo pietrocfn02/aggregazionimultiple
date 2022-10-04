@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Filtering </title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Let's filter something!</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="align-items-center justify-content-center">
+                    <div class="row box">
+                        <h3>Active filters:</h3>
+                    </div>
+
+                    {% if filters|length > 0 %}
+
+                    {% for filter in filters %}
+                    <span class="badge text-bg-primary">{{filter}}</span>
+                    {% endfor %}
+                    {% else %}
+                    No filters applied
+                    {% endif %}
+
+                    <br>
+                    <br>
+                    <h3>Available filters:</h3>
+
+                    {% if available_filters|length > 0 %}
+
+                    {% for ava in available_filters %}
+                    {% if filterstring != '' %}
+                    <span class="badge text-bg-info"><a
+                            href="{% url 'filtersparam' filters=filterstring %}?add={{ava}}&noupdate='True'">{{ava}}</a></span>
+                    {% else %}
+                    <span class="badge text-bg-info"><a
+                            href="{% url 'filtersparam'%}?add={{ava}}&noupdate='True'">{{ava}}</a></span>
+                    {% endif %}
+                    {% endfor %}
+
+                    {% else %}
+                    No filters available!
+                    {% endif %}
+                    <br><br>
+
+                </div>
+
+            </div>
+            <div class="col-sm-8">
+                <table class="table table-striped">
+                    <tr>
+                        {% for h in header%}
+                        <th scope="col"> {{h}}</th>
+                        {% endfor %}
+                    </tr>
+                    {% for t in timereports %}
+                    <tr>
+                        <td scope="row">
+                            {{t.0}}
+                        </td>
+                        <td scope="row">
+                            {{t.1}}
+                        </td>
+                        {%if t.2 != None %}
+                        <td scope="row">
+                            {{t.2}}
+                        </td>
+                        {% endif %}
+                        {%if t.3 != None %}
+                        <td scope="row">
+                            {{t.3}}
+                        </td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-sm-4 offset-md-3">
+                <button type="button" class="btn btn-secondary"><a href="{% url 'home'%}">Reset filters</a></button>
+                {% if not nextNoFilter %}
+                {% if filterstring != '' %}
+                <button type="button" class="btn btn-primary"><a id="link"
+                        href="{% url 'filtersparam' filters=filterstring %}?nextNoFilter=True">Filter</a></button>
+                {% else %}
+                <button type="button" class="btn btn-primary"><a id="link"
+                        href="{% url 'filtersparam'%}?nextNoFilter=True">Filter</a></button>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+</body>
