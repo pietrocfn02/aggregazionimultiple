@@ -6,7 +6,7 @@ from .utils import update_filters, update_tables
 
 
 def homepage(request, filters=''):
-    print("###############"+str(filters))
+    #print("###############"+str(filters))
     
     update = True
     nextNoFilter = False

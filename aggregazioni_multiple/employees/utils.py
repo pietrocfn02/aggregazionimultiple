@@ -14,11 +14,11 @@ def parse_filters(filters: str):
     remaining = []
     for x in all_filters:
         remaining.append(x)
-    print (remaining)
+    #print (remaining)
     for s in splitted:
         if s in remaining:
             remaining.remove(s)
-    print (remaining)
+    #print (remaining)
     return splitted, remaining
 
 
@@ -40,10 +40,10 @@ def play_with_filters(filters):
         where ee.id = et.employee_id and ep.id = et.project_id 
         group by """+stringone+""";
         """
-        print (query)
+        #print (query)
         cursor.execute(query)
         row = cursor.fetchall()
-        print(row)
+        #print(row)
         filters_copy.append('Hours')
     
     return filters_copy, row
@@ -70,7 +70,7 @@ def update_tables(table,filter_array):
 
 def update_filters(filters, filter_array, remaining):
     if filters != '':
-        print("**************" + filters)
+        #print("**************" + filters)
         result = parse_filters(filters)
         filter_array = result[0]
         remaining = result[1]
