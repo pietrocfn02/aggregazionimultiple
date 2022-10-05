@@ -50,12 +50,16 @@
                     {% if available_filters|length > 0 %}
 
                     {% for ava in available_filters %}
+                    {% if not nextNoFilter %}
                     {% if filterstring != '' %}
                     <span class="badge text-bg-info"><a
                             href="{% url 'filtersparam' filters=filterstring %}?add={{ava}}&noupdate='True'">{{ava}}</a></span>
                     {% else %}
                     <span class="badge text-bg-info"><a
                             href="{% url 'filtersparam'%}?add={{ava}}&noupdate='True'">{{ava}}</a></span>
+                    {% endif %}
+                    {% else %}
+                    <span class="badge text-bg-info"><a href="#">{{ava}}</a></span>
                     {% endif %}
                     {% endfor %}
 
